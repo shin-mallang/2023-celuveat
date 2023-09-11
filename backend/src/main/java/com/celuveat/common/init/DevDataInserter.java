@@ -37,7 +37,6 @@ public class DevDataInserter {
     private final List<RestaurantImage> restaurantImages = new ArrayList<>();
     private final List<Video> videos = new ArrayList<>();
 
-
     @PostConstruct
     public void insertData() {
         String[] activeProfiles = environment.getActiveProfiles();
