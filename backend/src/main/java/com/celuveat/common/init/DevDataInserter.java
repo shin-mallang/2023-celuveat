@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
-@Profile("dev")
+@Profile("local")
 @RequiredArgsConstructor
 @Component
 public class DevDataInserter {
