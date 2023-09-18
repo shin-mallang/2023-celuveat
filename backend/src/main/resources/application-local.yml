@@ -1,19 +1,20 @@
-logging:
-  level:
-    org.hibernate.orm.jdbc.bind: TRACE
-    org.apache.coyote.http11: debug
-
 spring:
-  jpa:
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-        use_sql_comments: true
-        highlight_sql: true
+  datasource:
+    url: jdbc:mysql://15.164.241.176:3306/celuveat
+    username: mallang
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
+  jpa:
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        use_sql_comments: true
+#        highlight_sql: true
+#
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
 
 cors:
   allowedOrigins: http://localhost:3000
