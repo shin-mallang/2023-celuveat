@@ -5,15 +5,17 @@ import com.celuveat.restaurant.command.domain.RestaurantLike;
 import com.celuveat.restaurant.query.dto.RestaurantIdWithLikeCount;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface RestaurantLikeQueryDaoSupport extends JpaRepository<RestaurantLike, Long> {
 
-    Optional<RestaurantLike> findByRestaurantAndMemberId(Restaurant restaurant, Long memberId);
-
+    @EntityGraph(attributePaths = {"restaurant"})
     List<RestaurantLike> findAllByMemberId(Long memberId);
+
+    Optional<RestaurantLike> findByRestaurantAndMemberId(Restaurant restaurant, Long memberId);
 
     List<RestaurantLike> findAllByMemberIdOrderByCreatedDateDesc(Long memberId);
 
